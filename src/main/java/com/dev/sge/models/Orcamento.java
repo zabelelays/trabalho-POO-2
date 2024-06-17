@@ -1,4 +1,4 @@
-package com.dev.loja.models;
+package com.dev.sge.models;
 
 
 import lombok.Getter;
@@ -9,15 +9,15 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name="forncedor")
-public class Fornecedor {
+@Table(name="orcamento")
+public class Orcamento {
 
     @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String contato;
+    private Double valorTotal;
 
-    private String email;
+    private Double valorLucro;
 }

@@ -1,4 +1,4 @@
-package com.dev.loja.models;
+package com.dev.sge.models;
 
 
 import lombok.Getter;

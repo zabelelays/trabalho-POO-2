@@ -1,7 +1,7 @@
-package com.dev.loja.controllers;
+package com.dev.sge.controllers;
 
-import com.dev.loja.models.Fornecedor;
-import com.dev.loja.repositories.ForncedorRepository;
+import com.dev.sge.models.Fornecedor;
+import com.dev.sge.repositories.ForncedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

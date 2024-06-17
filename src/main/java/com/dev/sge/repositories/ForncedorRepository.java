@@ -1,8 +1,7 @@
-package com.dev.loja.repositories;
+package com.dev.sge.repositories;
 
 
-import com.dev.loja.models.Fornecedor;
-import com.dev.loja.models.Mercadoria;
+import com.dev.sge.models.Fornecedor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ForncedorRepository extends JpaRepository<Fornecedor, Integer> {
