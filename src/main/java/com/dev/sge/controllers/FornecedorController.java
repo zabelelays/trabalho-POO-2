@@ -20,36 +20,36 @@ public class FornecedorController {
 	private ForncedorRepository fornecedorRepository;
 
 
-	@GetMapping("funcionarios/cadastrar")
-	public ModelAndView cadastrar(Fornecedor funcionario) {
-		ModelAndView mv = new ModelAndView("/administrativo/funcionarios/cadastro");
-		mv.addObject("funcionario", funcionario);
+	@GetMapping("forncededores/cadastrar")
+	public ModelAndView cadastrar(Fornecedor fornecedor) {
+		ModelAndView mv = new ModelAndView("/administrativo/fornecedores/cadastro");
+		mv.addObject("fornecedor", fornecedor);
 		return mv;
 	}
 
-	@GetMapping("/funcionarios/lista")
+	@GetMapping("/forncededores/lista")
 	public ModelAndView listar() {
-		ModelAndView mv = new ModelAndView("administrativo/funcionarios/lista");
+		ModelAndView mv = new ModelAndView("administrativo/fornecedores/lista");
 		mv.addObject("listaFornecedors", fornecedorRepository.findAll());
 		return mv;
 	}
 
-	@PostMapping("funcionarios/salvar")
-	public ModelAndView salvar(@Valid Fornecedor funcionario, BindingResult result) {
+	@PostMapping("forncededores/salvar")
+	public ModelAndView salvar(@Valid Fornecedor fornecedor, BindingResult result) {
 		if(result.hasErrors()) {
-			return cadastrar(funcionario);
+			return cadastrar(fornecedor);
 		}
-		fornecedorRepository.save(funcionario);
+		fornecedorRepository.save(fornecedor);
 		return cadastrar(new Fornecedor());
 	}
 
-	@GetMapping("funcionarios/editar/{id}")
+	@GetMapping("forncededores/editar/{id}")
 	public ModelAndView editar(@PathVariable("id") int id) {
-		Optional<Fornecedor> funcionario = fornecedorRepository.findById(id);
-		return cadastrar(funcionario.get());
+		Optional<Fornecedor> fornecedor = fornecedorRepository.findById(id);
+		return cadastrar(fornecedor.get());
 	}
 
-	@GetMapping("funcionarios/remover/{id}")
+	@GetMapping("forncededores/remover/{id}")
 	public ModelAndView remover(@PathVariable("id") int id) {
 		fornecedorRepository.deleteById(id);
 		return  listar();
