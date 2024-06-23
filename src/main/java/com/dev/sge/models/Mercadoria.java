@@ -20,13 +20,13 @@ public class Mercadoria implements Serializable {
 
     private String codigoDeBarras;
 
-    private Double nome;
+    private String nome;
 
     private String categoria;
 
     private String marca;
 
-    private Integer quantidadeEstoque = 0;
+    private Integer quantidadeEstoque;
 
     private Double preco;
 

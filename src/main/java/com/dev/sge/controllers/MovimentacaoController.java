@@ -1,6 +1,8 @@
 package com.dev.sge.controllers;
 
+import com.dev.sge.models.Mercadoria;
 import com.dev.sge.models.Movimentacao;
+import com.dev.sge.repositories.MercadoriaRepository;
 import com.dev.sge.repositories.MovimentacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,11 +21,15 @@ public class MovimentacaoController {
 	@Autowired
 	private MovimentacaoRepository movimentacaoRepository;
 
+	@Autowired
+	MercadoriaRepository mercadoriaRepository;
+
 
 	@GetMapping("movimentacoes/cadastrar")
 	public ModelAndView cadastrar(Movimentacao movimentacao) {
 		ModelAndView mv = new ModelAndView("/administrativo/movimentacoes/cadastro");
 		mv.addObject("movimentacao", movimentacao);
+		mv.addObject("listaMercadorias", mercadoriaRepository.findAll());
 		return mv;
 	}
 
@@ -35,18 +41,22 @@ public class MovimentacaoController {
 	}
 
 	@PostMapping("movimentacoes/salvar")
-	public ModelAndView salvar(@Valid Movimentacao Movimentacao, BindingResult result) {
+	public ModelAndView salvar(@Valid Movimentacao movimentacao, BindingResult result) {
+		Mercadoria mercadoria = mercadoriaRepository.findById(movimentacao.getMercadoria().getId())
+				.orElseThrow(() -> new IllegalArgumentException("Mercadoria inválida:" + movimentacao.getMercadoria().getId()));
+		movimentacao.setMercadoria(mercadoria);
 		if(result.hasErrors()) {
-			return cadastrar(Movimentacao);
+			System.out.println("Erro ao salvar");
+			return cadastrar(movimentacao);
 		}
-		movimentacaoRepository.save(Movimentacao);
+		movimentacaoRepository.save(movimentacao);
 		return cadastrar(new Movimentacao());
 	}
 
 	@GetMapping("movimentacoes/editar/{id}")
 	public ModelAndView editar(@PathVariable("id") int id) {
-		Optional<Movimentacao> Movimentacao = movimentacaoRepository.findById(id);
-		return cadastrar(Movimentacao.get());
+		Optional<Movimentacao> movimentacao = movimentacaoRepository.findById(id);
+		return cadastrar(movimentacao.get());
 	}
 
 	@GetMapping("movimentacoes/remover/{id}")

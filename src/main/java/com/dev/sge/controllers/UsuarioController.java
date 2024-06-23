@@ -30,16 +30,17 @@ public class UsuarioController {
 	@GetMapping("/usuarios/lista")
 	public ModelAndView listar() {
 		ModelAndView mv = new ModelAndView("administrativo/usuarios/lista");
-		mv.addObject("listaOrcamentos", usuarioRepository.findAll());
+		mv.addObject("listaUsuarios", usuarioRepository.findAll());
 		return mv;
 	}
 
 	@PostMapping("usuarios/salvar")
-	public ModelAndView salvar(@Valid Usuario Usuario, BindingResult result) {
+	public ModelAndView salvar(@Valid Usuario usuario, BindingResult result) {
 		if(result.hasErrors()) {
-			return cadastrar(Usuario);
+			System.out.println("Erro ao salvar");
+			return cadastrar(usuario);
 		}
-		usuarioRepository.save(Usuario);
+		usuarioRepository.save(usuario);
 		return cadastrar(new Usuario());
 	}
 

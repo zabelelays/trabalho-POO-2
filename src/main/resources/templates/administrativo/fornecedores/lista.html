@@ -24,6 +24,7 @@
 			<thead>
 			<tr>
 				<th>#</th>
+				<th>Nome</th>
 				<th>Contato</th>
 				<th>Email</th>
 				<th>Ação</th>
@@ -32,6 +33,7 @@
 			<tbody>
 			<tr th:each="fornecedor: ${listaFornecedors}">
 				<td th:text="${fornecedor.id}"></td>
+				<td th:text="${fornecedor.nome}"></td>
 				<td th:text="${fornecedor.contato}"></td>
 				<td th:text="${fornecedor.email}"></td>
 

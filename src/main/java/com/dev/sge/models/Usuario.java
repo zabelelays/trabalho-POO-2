@@ -21,4 +21,12 @@ public class Usuario implements Serializable {
     @Getter
     @Setter
     private String cargo;
+
+    @Getter
+    @Setter
+    private String email;
+
+    @Getter
+    @Setter
+    private String senha;
 }

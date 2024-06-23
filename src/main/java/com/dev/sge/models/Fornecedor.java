@@ -17,6 +17,9 @@ public class Fornecedor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+
+    private String nome;
+
     private String contato;
 
     private String email;

@@ -27,6 +27,12 @@
 	<div class="container" id="cadastro">
 		<form action="/fornecedores/salvar" th:object="${fornecedor}" method="POST">
 			<div class="form-group">
+				<label for="nome">Nome</label>
+				<input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Nome" autofocus="autofocus" value=""/>
+				<div class="invalid-feedback">
+				</div>
+			</div>
+			<div class="form-group">
 				<label for="contato">Contato</label>
 				<input type="text" class="form-control" id="contato" th:field="*{contato}" placeholder="Contato" autofocus="autofocus" value=""/>
 				<div class="invalid-feedback">

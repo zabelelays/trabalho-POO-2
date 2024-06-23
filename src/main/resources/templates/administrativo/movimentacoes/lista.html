@@ -24,16 +24,19 @@
 			<thead>
 			<tr>
 				<th>#</th>
-				<th>Descrição</th>
-				<th>Valor</th>
-				<th>Ação</th>
+				<th>Tipo</th>
+				<th>Data</th>
+				<th>Quantidade</th>
+				<th>Mercadoria</th>
 			</tr>
 			</thead>
 			<tbody>
 			<tr th:each="movimentacao: ${listaMovimentacoes}">
 				<td th:text="${movimentacao.id}"></td>
-				<td th:text="${movimentacao.descricao}"></td>
-				<td th:text="${movimentacao.valor}"></td>
+				<td th:text="${movimentacao.tipo}"></td>
+				<td th:text="${movimentacao.data}"></td>
+				<td th:text="${movimentacao.quantidade}"></td>
+				<td th:text="${movimentacao.mercadoria.getNome()}"></td>
 
 				<td colspan="2"><a class="btn btn-info btn-sm"
 								   th:href="@{/movimentacoes/editar/{id}(id=${movimentacao.id})}"

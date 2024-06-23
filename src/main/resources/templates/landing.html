@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+      xmls:th="http://www.thymeleaf.org"
+      xmls:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <title>Loja Spring Boot</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="icon" href="/image/favicon.ico" />
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="/css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+
+<main role="main" class="container">
+  <div class="jumbotron">
+    <h1>Bem-vindo à SGE Market!</h1>
+    <p class="lead">Aqui você pode gerenciar mercadorias, fornecedores, movimentações, orçamentos e usuários.</p>
+    <a class="btn btn-lg btn-primary" href="/login" role="button">Faça login agora &raquo;</a>
+  </div>
+</main>
+
+  <img src="/image/logo.png" alt="Logo" style="width: 600px; height: 600px; padding: 100px;display: block;margin-left: auto;margin-right: auto;">
+
+<footer class="layout-footer">
+  <div class="container">
+    <span class="footer-copy">&copy; 2024 SGE Market. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    $('[data-toggle="popover"]').popover();
+  });
+
+  $(document).ready(function(){
+    $(".navbar-toggle").click(function(){
+      $(".sidebar").toggleClass("sidebar-open");
+    })
+  });
+</script>
+</body>
+</html>

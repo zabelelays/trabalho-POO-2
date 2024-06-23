@@ -35,18 +35,19 @@ public class OrcamentoController {
 	}
 
 	@PostMapping("orcamentos/salvar")
-	public ModelAndView salvar(@Valid Orcamento Orcamento, BindingResult result) {
+	public ModelAndView salvar(@Valid Orcamento orcamento, BindingResult result) {
 		if(result.hasErrors()) {
-			return cadastrar(Orcamento);
+			System.out.println("Erro ao salvar");
+			return cadastrar(orcamento);
 		}
-		orcamentoRepository.save(Orcamento);
+		orcamentoRepository.save(orcamento);
 		return cadastrar(new Orcamento());
 	}
 
 	@GetMapping("orcamentos/editar/{id}")
 	public ModelAndView editar(@PathVariable("id") int id) {
-		Optional<Orcamento> Orcamento = orcamentoRepository.findById(id);
-		return cadastrar(Orcamento.get());
+		Optional<Orcamento> orcamento = orcamentoRepository.findById(id);
+		return cadastrar(orcamento.get());
 	}
 
 	@GetMapping("orcamentos/remover/{id}")
