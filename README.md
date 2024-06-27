@@ -1,4 +1,4 @@
-# Nome do Projeto
+# SGE Market
 
 Este é um projeto Spring Boot que usa PostgreSQL como banco de dados. Este arquivo README fornece instruções sobre como configurar e executar o projeto.
 
