@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name="forncedor")
+@Table(name="fornecedor")
 public class Fornecedor {
 
     @Getter

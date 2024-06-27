@@ -8,7 +8,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "landing";
+        return "redirect:fornecedores/cadastrar";
     }
 
     @GetMapping("/login")
